@@ -14,7 +14,6 @@
             "email": "naylon.kessler@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "IpApi\\": "src/"
