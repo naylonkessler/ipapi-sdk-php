@@ -3,16 +3,16 @@
 namespace IpApi;
 
 /**
- * Class Response.
+ * Class Location.
  *
  * The abstraction of a response fetched from IpApi api.
  *
  * @package IpApi
  */
-class Response implements \JsonSerializable
+class Location implements \JsonSerializable
 {
     /**
-     * Response attributes collection.
+     * Location attributes collection.
      *
      * @var mixed[]
      */

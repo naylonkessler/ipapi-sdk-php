@@ -20,12 +20,12 @@ Just import, instantiate and call:
 use IpApi\IpApi;
 
 $api = new IpApi();
-$response = $api->locate('ip or address');
+$location = $api->locate('ip or address');
 ```
 
-### The \IpApi\Response object
+### The \IpApi\Location object
 
-The response object has an schema returned composed by the following fields by default:
+The location object has an schema returned composed by the following fields by default:
 
 - status: Status of operation;
 - country: Country of address;
@@ -42,18 +42,12 @@ The response object has an schema returned composed by the following fields by d
 - as: The AS number and name;
 - query: The address or IP used on query.
 
-The response object has some others methods and features:
+The location object has some others methods and features:
 
 ```php
 // Convert the object to an array
-$data = $response->toArray();
-
-// Fill the object with received array data
-$response->fill([
-    'propertyOne' => 'Value one',
-    'propertyTwo' => 'Value two',
-]);
+$data = $location->toArray();
 
 // JSON encode
-$json = json_encode($response);
+$json = json_encode($location);
 ```

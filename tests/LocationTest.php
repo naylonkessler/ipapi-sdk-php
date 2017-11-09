@@ -2,27 +2,27 @@
 
 use PHPUnit\Framework\TestCase;
 
-class ResponseTest extends TestCase
+class LocationTest extends TestCase
 {
     public function testSetting()
     {
-        $response = new \IpApi\Response();
-        $response->someProp = 'some value';
+        $location = new \IpApi\Location();
+        $location->someProp = 'some value';
 
-        $this->assertAttributeEquals(['someProp' => 'some value'], 'attributes', $response);
+        $this->assertAttributeEquals(['someProp' => 'some value'], 'attributes', $location);
     }
 
     public function testGetting()
     {
-        $response = new \IpApi\Response();
-        $response->someProp = 'some value';
+        $location = new \IpApi\Location();
+        $location->someProp = 'some value';
 
-        $this->assertEquals('some value', $response->someProp);
+        $this->assertEquals('some value', $location->someProp);
     }
 
     public function testFilling()
     {
-        $response = new \IpApi\Response([
+        $location = new \IpApi\Location([
             'propOne' => 'value one',
             'propTwo' => 'value two',
         ]);
@@ -30,12 +30,12 @@ class ResponseTest extends TestCase
         $this->assertAttributeEquals([
             'propOne' => 'value one',
             'propTwo' => 'value two',
-        ], 'attributes', $response);
+        ], 'attributes', $location);
     }
 
     public function testToArray()
     {
-        $response = new \IpApi\Response([
+        $location = new \IpApi\Location([
             'propOne' => 'value one',
             'propTwo' => 'value two',
         ]);
@@ -43,14 +43,14 @@ class ResponseTest extends TestCase
         $this->assertEquals([
             'propOne' => 'value one',
             'propTwo' => 'value two',
-        ], $response->toArray());
+        ], $location->toArray());
     }
 
     public function testToJson()
     {
-        $response = new \IpApi\Response(['propOne' => 'value one']);
+        $location = new \IpApi\Location(['propOne' => 'value one']);
 
-        $json = json_encode($response);
+        $json = json_encode($location);
         $parsed = json_decode($json, true);
 
         $this->assertEquals(['propOne' => 'value one'], $parsed);

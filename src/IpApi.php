@@ -19,14 +19,14 @@ class IpApi
     protected $endpoint = 'http://ip-api.com/json/';
 
     /**
-     * Builds a response object from received parsed data.
+     * Builds a location object from received parsed data.
      *
      * @param mixed[] $data
-     * @return \IpApi\Response
+     * @return \IpApi\Location
      */
-    protected function buildResponse(array $data)
+    protected function buildLocation(array $data)
     {
-        return new Response($data);
+        return new Location($data);
     }
 
     /**
@@ -55,16 +55,16 @@ class IpApi
      * Locates the received address over api.
      *
      * @param string $address
-     * @return \IpApi\Response
+     * @return \IpApi\Location
      */
     public function locate($address)
     {
         $url = $this->buildUrl($address);
         $data = $this->fetch($url);
         $parsed = $this->parse($data);
-        $response = $this->buildResponse($parsed);
+        $location = $this->buildLocation($parsed);
 
-        return $response;
+        return $location;
     }
 
     /**
