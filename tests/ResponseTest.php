@@ -22,8 +22,7 @@ class ResponseTest extends TestCase
 
     public function testFilling()
     {
-        $response = new \IpApi\Response();
-        $response->fill([
+        $response = new \IpApi\Response([
             'propOne' => 'value one',
             'propTwo' => 'value two',
         ]);
@@ -32,20 +31,11 @@ class ResponseTest extends TestCase
             'propOne' => 'value one',
             'propTwo' => 'value two',
         ], 'attributes', $response);
-
-        $response->fill(['propThree' => 'value three']);
-
-        $this->assertAttributeEquals([
-            'propOne' => 'value one',
-            'propTwo' => 'value two',
-            'propThree' => 'value three',
-        ], 'attributes', $response);
     }
 
     public function testToArray()
     {
-        $response = new \IpApi\Response();
-        $response->fill([
+        $response = new \IpApi\Response([
             'propOne' => 'value one',
             'propTwo' => 'value two',
         ]);
@@ -58,8 +48,7 @@ class ResponseTest extends TestCase
 
     public function testToJson()
     {
-        $response = new \IpApi\Response();
-        $response->fill(['propOne' => 'value one']);
+        $response = new \IpApi\Response(['propOne' => 'value one']);
 
         $json = json_encode($response);
         $parsed = json_decode($json, true);

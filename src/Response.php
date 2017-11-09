@@ -19,11 +19,21 @@ class Response implements \JsonSerializable
     protected $attributes = [];
 
     /**
+     * Creates a new response object and initializes its state.
+     *
+     * @param mixed[] $data
+     */
+    public function __construct(array $data = [])
+    {
+        $this->fill($data);
+    }
+
+    /**
      * Fill the response with received key => values.
      *
      * @param mixed[] $attributes
      */
-    public function fill(array $attributes)
+    protected function fill(array $attributes)
     {
         array_map(function ($value, $name) {
             $this->{$name} = $value;

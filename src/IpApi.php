@@ -26,10 +26,7 @@ class IpApi
      */
     protected function buildResponse(array $data)
     {
-        $response = new Response();
-        $response->fill($data);
-
-        return $response;
+        return new Response($data);
     }
 
     /**
