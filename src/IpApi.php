@@ -11,6 +11,12 @@ namespace IpApi;
  */
 class IpApi
 {
+
+    /**
+     * @var string
+     */
+    protected $apiKey = '';
+
     /**
      * API endpoint address.
      *
@@ -37,7 +43,13 @@ class IpApi
      */
     protected function buildUrl($address)
     {
-        return $this->endpoint . $address;
+        $url = $this->endpoint . $address;
+
+        if (!empty($this->apiKey)) {
+            $url .= '&key=' . $this->apiKey;
+        }
+
+        return $url;
     }
 
     /**
@@ -77,4 +89,21 @@ class IpApi
     {
         return json_decode($data, true);
     }
+
+    /**
+     * @return string
+     */
+    public function getApiKey()
+    {
+        return $this->apiKey;
+    }
+
+    /**
+     * @param string $apiKey
+     */
+    public function setApiKey($apiKey)
+    {
+        $this->apiKey = $apiKey;
+    }
+
 }
