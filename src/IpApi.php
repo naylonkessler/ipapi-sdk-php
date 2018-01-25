@@ -46,7 +46,7 @@ class IpApi
         $url = $this->endpoint . $address;
 
         if (!empty($this->apiKey)) {
-            $url .= '&key=' . $this->apiKey;
+            $url .= '?key=' . $this->apiKey;
         }
 
         return $url;
