@@ -25,6 +25,13 @@ class IpApi
     protected $endpoint = 'http://ip-api.com/json/';
 
     /**
+     * API endpoint address.
+     *
+     * @var string
+     */
+    protected $endpointPro = 'http://pro.ip-api.com/json/';
+
+    /**
      * Builds a location object from received parsed data.
      *
      * @param mixed[] $data
@@ -43,10 +50,12 @@ class IpApi
      */
     protected function buildUrl($address)
     {
-        $url = $this->endpoint . $address;
+        $url = '';
 
-        if (!empty($this->apiKey)) {
-            $url .= '&key=' . $this->apiKey;
+        if (empty($this->apiKey)) {
+            $url = $this->endpoint . $address;
+        } else {
+            $url = $this->endpointPro . $address . '?key=' . $this->apiKey;
         }
 
         return $url;
